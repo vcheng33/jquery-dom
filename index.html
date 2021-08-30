@@ -85,6 +85,17 @@
 
       let newParagraph = $("<p>").text("Sorry for that list!");
       $("aside").empty().append(newParagraph);
+
+
+      $(".form-control")
+        .on("change", function () {
+          let r = $(".form-control").eq(0).val();
+          let g = $(".form-control").eq(1).val();
+          let b = $(".form-control").eq(2).val();
+          $("body").css("backgroundColor", `rgb(${r}, ${g}, ${b})`)
+        })
+
+      $("img").on("click", function (evt) { evt.target.remove() })
     })
 
   </script>
