@@ -80,8 +80,11 @@
       $("article p").last().remove();
       $("#title").css("fontSize", `${Math.ceil(Math.random() * 100)}px`);
 
+      let newLi = $("<li>").text("It's so cute!");
+      $("ol").append(newLi);
 
-
+      let newParagraph = $("<p>").text("Sorry for that list!");
+      $("aside").empty().append(newParagraph);
     })
 
   </script>
