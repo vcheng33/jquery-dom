@@ -72,11 +72,11 @@
   </div>
 
   <div>
-    <form id="movies">
+    <form id="movie-form">
       <label for="movie-title">Movie Title: </label>
-      <input id="movie-title" type="text">
+      <input id="movie-title" type="text" minlength="2">
       <label for="movie-rating">Movie Rating: </label>
-      <input id="movie-rating" type="number" min="1" max="5">
+      <input id="movie-rating" type="number" min="1" max="10">
       <button id="submit">Submit Movie Rating</button>
     </form>
     <div>
@@ -109,7 +109,7 @@
           $("body").css("backgroundColor", `rgb(${r}, ${g}, ${b})`)
         })
 
-      $("img").on("click", function (evt) { evt.target.remove() })
+      $("img").on("click", function (evt) { $(evt.target).remove() })
 
 
       // PART 2
@@ -119,19 +119,20 @@
       })
 
       // More descriptive name for submit, could use submit since it's a form
-      $("#submit").on("click", function (evt) {
+      $("#movie-form").on("submit", function (evt) {
         evt.preventDefault();
         let title = $("#movie-title").val();
         let rating = $("#movie-rating").val();
         let movie = $("<li>").text(`${title}-${rating}`).addClass("new-movie");
         let deleteBtn = $("<button>").text("DELETE ME").addClass("delete-movie-button");
-        
+
         movie.append(deleteBtn);
         $("#movie-list").append(movie);
 
       })
 
-
+      $("#movie-form").css("marginLeft", "85px").css("marginBottom", "30px")
+      $("#movie-list").css("marginLeft", "85px")
 
     })
 
