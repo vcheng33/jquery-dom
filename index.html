@@ -112,15 +112,26 @@
       $("img").on("click", function (evt) { evt.target.remove() })
 
 
+      // PART 2
+      $("#movie-list").on("click", ".new-movie", function (evt) {
+        console.log("deleteButton function ran");
+        $(evt.target).parent().remove();
+      })
+
+      // More descriptive name for submit, could use submit since it's a form
       $("#submit").on("click", function (evt) {
         evt.preventDefault();
         let title = $("#movie-title").val();
         let rating = $("#movie-rating").val();
-        let movie = $("<li>").text(`${title}-${rating}`);
-        let deleteBtn = $("<button>").text("DELETE ME");
+        let movie = $("<li>").text(`${title}-${rating}`).addClass("new-movie");
+        let deleteBtn = $("<button>").text("DELETE ME").addClass("delete-movie-button");
+        
         movie.append(deleteBtn);
         $("#movie-list").append(movie);
+
       })
+
+
 
     })
 
